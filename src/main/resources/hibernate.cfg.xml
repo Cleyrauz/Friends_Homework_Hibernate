@@ -12,6 +12,13 @@
         <property name="connection.pool_size">1</property>
         <property name="show_sql">true</property>
         <mapping class = "models.Member"/>
+        <mapping class = "models.Episode"/>
+        <mapping class = "models.Director"/>
+        <mapping class = "models.Writer"/>
+        <mapping class = "models.Studio"/>
+        <mapping class = "models.Set"/>
+        <mapping class = "models.Actor"/>
+        <mapping class = "models.Season"/>
 
     </session-factory>
 </hibernate-configuration>
