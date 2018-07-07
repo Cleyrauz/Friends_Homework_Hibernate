@@ -1,5 +1,7 @@
-package db;
+package models;
 
+import models.Episode;
+import models.Member;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 

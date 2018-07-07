@@ -1,4 +1,6 @@
-package db;
+package models;
+
+import models.Studio;
 
 import javax.persistence.*;
 
@@ -48,8 +50,9 @@ public class Set {
         this.location = location;
     }
 
+    //no sure about the name
     @ManyToOne
-    @JoinColumn(name="studio_id", nullable=false)
+    @JoinColumn(name="studio", nullable=false)
     public Studio getStudio() {
         return studio;
     }

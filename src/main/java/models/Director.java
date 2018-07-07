@@ -1,4 +1,7 @@
-package db;
+package models;
+
+import models.Episode;
+import models.Member;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;

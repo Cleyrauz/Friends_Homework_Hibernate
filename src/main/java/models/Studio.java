@@ -1,4 +1,4 @@
-package db;
+package models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class Studio {
     private double budget;
     private String location;
     private List<Episode> episodes;
-//    private List<Set> sets;
+    private List<Set> sets;
 
     public Studio(){
 
@@ -24,6 +24,7 @@ public class Studio {
         this.budget = budget;
         this.location = location;
         this.episodes = new ArrayList<Episode>();
+        this.sets = new ArrayList<Set>();
     }
 
     @Id
@@ -70,6 +71,16 @@ public class Studio {
 
     public void setEpisodes(List<Episode> episodes) {
         this.episodes = episodes;
+    }
+
+    //no estoy segura del mapped by
+    @OneToMany(mappedBy = "set_id", fetch = FetchType.LAZY)
+    public List<Set> getSets() {
+        return sets;
+    }
+
+    public void setSets(List<Set> sets) {
+        this.sets = sets;
     }
 }
 

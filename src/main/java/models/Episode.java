@@ -1,4 +1,4 @@
-package db;
+package models;
 
 public class Episode {
 
