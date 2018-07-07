@@ -14,7 +14,7 @@ public abstract class Member {
     private String firstName;
     private String lastName;
     private double money;
-    List<Episode> episodes;
+    private List<Episode> episodes;
 
     public Member(String firstName, String lastName, double money) {
         this.firstName = firstName;
