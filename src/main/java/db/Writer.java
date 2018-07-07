@@ -36,4 +36,8 @@ public class Writer extends Member {
     public void setEpisodes(List<Episode> episodes) {
         this.episodes = episodes;
     }
+
+    public void addEpisode(Episode episode){
+        this.episodes.add(episode);
+    }
 }
