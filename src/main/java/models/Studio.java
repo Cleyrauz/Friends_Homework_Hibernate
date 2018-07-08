@@ -73,8 +73,8 @@ public class Studio {
         this.episodes = episodes;
     }
 
-    //no estoy segura del mapped by
-    @OneToMany(mappedBy = "set_id", fetch = FetchType.LAZY)
+
+    @OneToMany(mappedBy = "studio", fetch = FetchType.LAZY)
     public List<Set> getSets() {
         return sets;
     }

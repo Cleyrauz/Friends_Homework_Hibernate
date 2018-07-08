@@ -23,7 +23,7 @@ public class Writer extends Member {
         this.episodes = new ArrayList<Episode>();
     }
 
-    @Cascade(CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @ManyToMany
     @JoinTable(name="episode_writer",
     joinColumns = {@JoinColumn(name="writer_id", nullable = false, updatable = false)},

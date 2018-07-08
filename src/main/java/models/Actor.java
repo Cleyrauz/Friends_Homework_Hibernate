@@ -24,7 +24,7 @@ public class Actor extends Member {
 
     }
 
-    @Cascade(CascadeType.SAVE_UPDATE)
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @ManyToMany
     @JoinTable(name="episode_cast",
     joinColumns = {@JoinColumn(name="actor_id", nullable = false, updatable = false)},

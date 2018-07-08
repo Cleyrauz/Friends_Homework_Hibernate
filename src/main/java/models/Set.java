@@ -50,9 +50,9 @@ public class Set {
         this.location = location;
     }
 
-    //no sure about the name
+
     @ManyToOne
-    @JoinColumn(name="studio", nullable=false)
+    @JoinColumn(name="studio_id", nullable=false)
     public Studio getStudio() {
         return studio;
     }
