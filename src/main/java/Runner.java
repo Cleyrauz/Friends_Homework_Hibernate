@@ -1,5 +1,8 @@
+import db.DBEpisode;
 import db.DBHelper;
 import models.*;
+
+import java.util.List;
 
 public class Runner {
 
@@ -51,14 +54,6 @@ public class Runner {
        DBHelper.save(episode4);
 
 
-        actor1.addEpisode(episode1);
-        actor2.addEpisode(episode2);
-        actor3.addEpisode(episode3);
-        actor1.addEpisode(episode2);
-        actor1.addEpisode(episode2);
-        actor3.addEpisode(episode4);
-        actor1.addEpisode(episode4);
-
         director.addEpisodes(episode1);
         director.addEpisodes(episode2);
         director.addEpisodes(episode3);
@@ -70,27 +65,17 @@ public class Runner {
         studio.addEpisodes(episode3);
         studio.addEpisodes(episode4);
 
-        writer1.addEpisode(episode1);
-        writer2.addEpisode(episode2);
-        writer3.addEpisode(episode3);
-        writer3.addEpisode(episode4);
 
-        episode1.addActors(actor1);
-        episode1.addActors(actor2);
-        episode1.addActors(actor3);
-        episode1.addWriters(writer1);
-        episode2.addActors(actor1);
-        episode2.addActors(actor2);
-        episode2.addActors(actor3);
-        episode2.addWriters(writer2);
-        episode3.addActors(actor1);
-        episode3.addActors(actor2);
-        episode3.addActors(actor3);
-        episode3.addWriters(writer3);
-        episode4.addActors(actor1);
-        episode4.addActors(actor2);
-        episode4.addActors(actor3);
-        episode4.addWriters(writer2);
+        DBEpisode.addActorToEpisode(actor1, episode1);
+        DBEpisode.addActorToEpisode(actor1, episode2);
+        DBEpisode.addActorToEpisode(actor1, episode3);
+        DBEpisode.addActorToEpisode(actor1, episode4);
+        DBEpisode.addActorToEpisode(actor2, episode1);
+        DBEpisode.addActorToEpisode(actor3, episode3);
+        DBEpisode.addActorToEpisode(actor3, episode1);
+
+        List<Actor> allActorsForEpisode1 = DBEpisode.getAllActorsForEpisode(episode1);
+
 
     }
 
