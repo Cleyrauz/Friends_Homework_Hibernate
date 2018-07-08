@@ -1,5 +1,7 @@
 package models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,20 +17,19 @@ public class Episode {
     private List<Actor> cast;
     private List<Writer> writers;
     private Studio studio;
-    private List<Member> members;
     private Season season;
 
     public Episode(){
 
     }
 
-    public Episode(String title, Director director, Studio studio, Season season) {
+    public Episode(int year, String title, Director director, Studio studio, Season season) {
+        this.year = year;
         this.title = title;
         this.director = director;
         this.cast = new ArrayList<Actor>();
         this.writers = new ArrayList<Writer>();
         this.studio = studio;
-        this.members = new ArrayList<Member>();
         this.season = season;
     }
 
@@ -67,10 +68,16 @@ public class Episode {
         return director;
     }
 
+
     public void setDirector(Director director) {
         this.director = director;
     }
 
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name="episode_cast",
+    joinColumns = {@JoinColumn(name="episode_id", nullable = false, updatable = false)},
+    inverseJoinColumns = {@JoinColumn(name="actor_id", nullable = false, updatable = false)})
     public List<Actor> getCast() {
         return cast;
     }
@@ -79,6 +86,11 @@ public class Episode {
         this.cast = cast;
     }
 
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name="episode_writer",
+    joinColumns = {@JoinColumn(name="episode_id", nullable = false, updatable = false)},
+    inverseJoinColumns = {@JoinColumn(name="writer_id", nullable = false, updatable = false)})
     public List<Writer> getWriters() {
         return writers;
     }
@@ -97,14 +109,6 @@ public class Episode {
         this.studio = studio;
     }
 
-    public List<Member> getMembers() {
-        return members;
-    }
-
-    public void setMembers(List<Member> members) {
-        this.members = members;
-    }
-
     @Enumerated(EnumType.STRING)
     public Season getSeason() {
         return season;
@@ -113,4 +117,13 @@ public class Episode {
     public void setSeason(Season season) {
         this.season = season;
     }
+
+    public void addActors(Actor actor){
+        this.cast.add(actor);
+    }
+
+    public void addWriters(Writer writer){
+        this.writers.add(writer);
+    }
 }
+

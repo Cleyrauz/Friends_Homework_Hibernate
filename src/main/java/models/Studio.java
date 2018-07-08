@@ -82,5 +82,13 @@ public class Studio {
     public void setSets(List<Set> sets) {
         this.sets = sets;
     }
+
+    public void addSets(Set set){
+        this.sets.add(set);
+    }
+
+    public void addEpisodes(Episode episode){
+        this.episodes.add(episode);
+    }
 }
 

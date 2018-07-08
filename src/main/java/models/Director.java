@@ -20,7 +20,7 @@ public class Director extends Member {
 
     }
 
-    public Director(String firstName, String lastName, double money) {
+    public Director(String firstName, String lastName, int money) {
         super(firstName, lastName, money);
         this.episodes = new ArrayList<Episode>();
     }
@@ -33,6 +33,10 @@ public class Director extends Member {
 
     public void setEpisodes(List<Episode> episodes) {
         this.episodes = episodes;
+    }
+
+    public void addEpisodes(Episode episode){
+       this.episodes.add(episode);
     }
 }
 

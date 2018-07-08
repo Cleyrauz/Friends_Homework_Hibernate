@@ -13,16 +13,16 @@ import java.util.List;
 @Table(name="actors")
 public class Actor extends Member {
 
-    private List<Episode> episodes;
-
-    public Actor(String firstName, String lastName, double money) {
-        super(firstName, lastName, money);
-        this.episodes = new ArrayList<Episode>();
-    }
+    private List<Episode> episodes = new ArrayList<Episode>();
 
     public Actor() {
 
     }
+
+    public Actor(String firstName, String lastName, int money) {
+        super(firstName, lastName, money);
+    }
+
 
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @ManyToMany

@@ -3,33 +3,32 @@ package models;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-
 public abstract class Member {
 
     private int id;
     private String firstName;
     private String lastName;
-    private double money;
-    private List<Episode> episodes;
+    private int money;
 
-    public Member(String firstName, String lastName, double money) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.money = money;
-    }
 
     public Member(){
 
     }
 
+    public Member(String firstName, String lastName, int money) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.money = money;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
-
     public int getId() {
         return id;
     }
@@ -57,23 +56,12 @@ public abstract class Member {
     }
 
     @Column(name="money")
-    public double getMoney() {
+    public int getMoney() {
         return money;
     }
 
-    public void setMoney(double money) {
+    public void setMoney(int money) {
         this.money = money;
     }
 
-    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-    @ManyToMany
-    @JoinTable(name="episode_member", joinColumns = {@JoinColumn(name="member_id", nullable = false, updatable =false)},
-    inverseJoinColumns =  {@JoinColumn(name = "episode_id", nullable = false, updatable = false)})
-    public List<Episode> getEpisodes() {
-        return episodes;
-    }
-
-    public void setEpisodes(List<Episode> episodes) {
-        this.episodes = episodes;
-    }
 }

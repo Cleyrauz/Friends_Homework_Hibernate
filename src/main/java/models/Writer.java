@@ -18,7 +18,7 @@ public class Writer extends Member {
 
     }
 
-    public Writer(String firstName, String lastName, double money) {
+    public Writer(String firstName, String lastName, int money) {
         super(firstName, lastName, money);
         this.episodes = new ArrayList<Episode>();
     }
