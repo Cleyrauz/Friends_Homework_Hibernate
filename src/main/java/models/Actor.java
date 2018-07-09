@@ -41,4 +41,5 @@ public class Actor extends Member {
     public void addEpisode(Episode episode){
         this.episodes.add(episode);
     }
+
 }

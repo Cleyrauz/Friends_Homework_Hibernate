@@ -64,4 +64,9 @@ public abstract class Member {
         this.money = money;
     }
 
+    public int getPaid(int amount){
+        this.money += amount;
+        return this.money;
+    }
+
 }

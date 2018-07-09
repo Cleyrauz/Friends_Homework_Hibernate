@@ -76,6 +76,18 @@ public class Runner {
 
         List<Actor> allActorsForEpisode1 = DBEpisode.getAllActorsForEpisode(episode1);
 
+        DBEpisode.addWriterToEpisode(writer1, episode1);
+        DBEpisode.addWriterToEpisode(writer1, episode2);
+        DBEpisode.addWriterToEpisode(writer2, episode3);
+        DBEpisode.addWriterToEpisode(writer3, episode3);
+
+        List<Writer> allWritersForEpisode3 = DBEpisode.getAllWritersForEpisode(episode3);
+
+        actor2.setLastName("Schwimer");
+        DBHelper.update(actor2);
+
+//       actor2.getPaid(10000);
+//       studio.paidMember(10000);
 
     }
 

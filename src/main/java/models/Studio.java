@@ -10,7 +10,7 @@ public class Studio {
 
     private int id;
     private String name;
-    private double budget;
+    private int budget;
     private String location;
     private List<Episode> episodes;
     private List<Set> sets;
@@ -19,7 +19,7 @@ public class Studio {
 
     }
 
-    public Studio(String name, double budget, String location) {
+    public Studio(String name, int budget, String location) {
         this.name = name;
         this.budget = budget;
         this.location = location;
@@ -47,11 +47,11 @@ public class Studio {
         this.name = name;
     }
     @Column(name="budget")
-    public double getBudget() {
+    public int getBudget() {
         return budget;
     }
 
-    public void setBudget(double budget) {
+    public void setBudget(int budget) {
         this.budget = budget;
     }
 
@@ -89,6 +89,11 @@ public class Studio {
 
     public void addEpisodes(Episode episode){
         this.episodes.add(episode);
+    }
+
+    public int paidMember(int amount){
+        this.budget -= amount;
+        return this.budget;
     }
 }
 
